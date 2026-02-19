@@ -14,10 +14,12 @@ export const SplitScene = () => {
     >
       {/* Left Side - Men (Orange) */}
       <motion.div 
-        className="relative w-1/2 h-full overflow-hidden border-r border-white/10"
+        className="relative w-1/2 h-full overflow-hidden border-r border-white/10 cursor-pointer"
         initial={{ x: '-100%' }}
         animate={{ x: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        onClick={() => window.open('https://pregasquad.koyeb.app/booking', '_blank')}
+        whileHover={{ scale: 1.02 }}
       >
         <motion.img 
           src={menBg} 
@@ -75,14 +77,14 @@ export const SplitScene = () => {
       {/* Persistent Logos floating in corners */}
       <motion.img 
         src={menLogo} 
-        className="absolute top-[3vw] left-[3vw] w-[8vw] h-[8vw] rounded-full border-[0.2vw] border-[#ff4500] z-20 shadow-xl"
+        className="absolute top-[3vw] left-[3vw] w-[12vw] h-[12vw] rounded-full border-[0.3vw] border-[#ff4500] z-20 shadow-xl"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.5 }}
       />
       <motion.img 
         src={womenLogo} 
-        className="absolute top-[3vw] right-[3vw] w-[8vw] h-[8vw] rounded-full border-[0.2vw] border-[#ff1493] z-20 shadow-xl"
+        className="absolute top-[3vw] right-[3vw] w-[12vw] h-[12vw] rounded-full border-[0.3vw] border-[#ff1493] z-20 shadow-xl"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.7 }}

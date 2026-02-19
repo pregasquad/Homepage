@@ -6,8 +6,8 @@ import { FinalScene } from './video_scenes/FinalScene';
 
 const SCENE_DURATIONS = {
   intro: 3500,
-  split: 5000,
-  final: 4000,
+  split: 999999999, // Effectively stop here
+  final: 0,
 };
 
 export default function VideoTemplate() {
