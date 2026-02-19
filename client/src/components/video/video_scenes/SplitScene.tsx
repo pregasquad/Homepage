@@ -21,27 +21,19 @@ export const SplitScene = () => {
       >
         <img 
           src={menBg} 
-          className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-700"
+          className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-700"
           alt="Men's Salon"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/60 via-transparent to-transparent" />
         
-        <div className="absolute inset-0 flex flex-col justify-center items-center p-12">
-          <motion.img 
-            src={menLogo}
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.8, type: 'spring' }}
-            className="w-48 h-48 md:w-64 md:h-64 rounded-full border-8 border-[#ff4500] mb-8 shadow-2xl"
-          />
+        <div className="absolute inset-0 flex flex-col justify-end p-12">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="text-center"
           >
-            <h2 className="text-[6vw] md:text-[4vw] font-bold text-[#ff4500] mb-2 font-display">PREGA MEN</h2>
-            <p className="text-[2vw] md:text-[1vw] text-white/80 font-body tracking-[0.2em] uppercase">BE HUMBLE • ELITE CUTS</p>
+            <h2 className="text-[6vw] md:text-[4vw] font-bold text-white mb-2 font-display drop-shadow-lg">PREGA MEN</h2>
+            <p className="text-[2vw] md:text-[1vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">BE HUMBLE • ELITE CUTS</p>
           </motion.div>
         </div>
       </motion.div>
@@ -55,30 +47,38 @@ export const SplitScene = () => {
       >
         <img 
           src={womenBg} 
-          className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-700"
+          className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-700"
           alt="Women's Salon"
         />
-        <div className="absolute inset-0 bg-gradient-to-l from-[#ff1493]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-l from-[#ff1493]/60 via-transparent to-transparent" />
         
-        <div className="absolute inset-0 flex flex-col justify-center items-center p-12">
-          <motion.img 
-            src={womenLogo}
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 1, type: 'spring' }}
-            className="w-48 h-48 md:w-64 md:h-64 rounded-full border-8 border-[#ff1493] mb-8 shadow-2xl"
-          />
+        <div className="absolute inset-0 flex flex-col justify-end items-end p-12 text-right">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="text-center"
           >
-            <h2 className="text-[6vw] md:text-[4vw] font-bold text-[#ff1493] mb-2 font-display">PREGA GIRL</h2>
-            <p className="text-[2vw] md:text-[1vw] text-white/80 font-body tracking-[0.2em] uppercase">GLOW AND BEYOND</p>
+            <h2 className="text-[6vw] md:text-[4vw] font-bold text-white mb-2 font-display drop-shadow-lg">PREGA GIRL</h2>
+            <p className="text-[2vw] md:text-[1vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">GLOW AND BEYOND</p>
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Persistent Logos floating in corners */}
+      <motion.img 
+        src={menLogo} 
+        className="absolute top-8 left-8 w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-[#ff4500] z-20 shadow-xl"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.5 }}
+      />
+      <motion.img 
+        src={womenLogo} 
+        className="absolute top-8 right-8 w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-[#ff1493] z-20 shadow-xl"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.7 }}
+      />
     </motion.div>
   );
 };
