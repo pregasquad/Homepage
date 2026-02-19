@@ -74,6 +74,20 @@ export const SplitScene = () => {
         </div>
       </motion.div>
 
+      {/* Center Message */}
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center pointer-events-none z-30"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 2, duration: 1, ease: "easeOut" }}
+      >
+        <div className="bg-black/40 backdrop-blur-md px-[4vw] py-[2vw] rounded-full border border-white/20 shadow-2xl">
+          <h3 className="text-white text-[2vw] font-bold font-display tracking-widest uppercase text-center drop-shadow-lg">
+            Select Your Experience
+          </h3>
+        </div>
+      </motion.div>
+
       {/* Persistent Logos floating in corners */}
       <motion.img 
         src={menLogo} 
