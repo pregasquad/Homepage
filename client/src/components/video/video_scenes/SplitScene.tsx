@@ -40,10 +40,12 @@ export const SplitScene = () => {
 
       {/* Right Side - Women (Pink) */}
       <motion.div 
-        className="relative w-1/2 h-full overflow-hidden"
+        className="relative w-1/2 h-full overflow-hidden cursor-pointer"
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        onClick={() => window.open('https://pregasquad.koyeb.app/booking', '_blank')}
+        whileHover={{ scale: 1.02 }}
       >
         <img 
           src={womenBg} 
