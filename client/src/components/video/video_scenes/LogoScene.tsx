@@ -16,20 +16,20 @@ export const LogoScene = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,#ff1493,transparent_60%)] opacity-20" />
       </div>
       
-      <div className="flex gap-[2vw] mb-[3vw]">
+      <div className="flex gap-[3vw] mb-[4vw]">
         <motion.img
           src={menLogo}
           initial={{ x: '-5vw', opacity: 0, rotate: -10 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ delay: 0.2, duration: 0.8, type: 'spring' }}
-          className="w-[10vw] h-[10vw] rounded-full border-[0.3vw] border-[#ff4500] shadow-[0_0_30px_rgba(255,69,0,0.3)]"
+          className="w-[12vw] h-[12vw] rounded-full border-[0.4vw] border-[#ff4500] shadow-[0_0_30px_rgba(255,69,0,0.3)]"
         />
         <motion.img
           src={womenLogo}
           initial={{ x: '5vw', opacity: 0, rotate: 10 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
-          className="w-[10vw] h-[10vw] rounded-full border-[0.3vw] border-[#ff1493] shadow-[0_0_30px_rgba(255,20,147,0.3)]"
+          className="w-[12vw] h-[12vw] rounded-full border-[0.4vw] border-[#ff1493] shadow-[0_0_30px_rgba(255,20,147,0.3)]"
         />
       </div>
 
@@ -37,7 +37,7 @@ export const LogoScene = () => {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        className="text-[8vw] font-bold tracking-tighter text-white font-display text-center leading-none"
+        className="text-[12vw] font-bold tracking-tighter text-white font-display text-center leading-none"
       >
         PREGA<br />SQUAD
       </motion.h1>
@@ -46,7 +46,7 @@ export const LogoScene = () => {
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ delay: 1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="w-[15vw] h-[0.2vw] bg-gradient-to-r from-[#ff4500] to-[#ff1493] mt-[2vw] origin-center"
+        className="w-[20vw] h-[0.3vw] bg-gradient-to-r from-[#ff4500] to-[#ff1493] mt-[3vw] origin-center"
       />
     </motion.div>
   );

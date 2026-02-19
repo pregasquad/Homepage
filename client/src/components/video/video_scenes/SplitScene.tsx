@@ -26,14 +26,14 @@ export const SplitScene = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/60 via-transparent to-transparent" />
         
-        <div className="absolute inset-0 flex flex-col justify-end p-[3vw]">
+        <div className="absolute inset-0 flex flex-col justify-end p-[5vw]">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <h2 className="text-[4vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA MEN</h2>
-            <p className="text-[1vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">BE HUMBLE • ELITE CUTS</p>
+            <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA MEN</h2>
+            <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">BE HUMBLE • ELITE CUTS</p>
           </motion.div>
         </div>
       </motion.div>
@@ -54,14 +54,14 @@ export const SplitScene = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-l from-[#ff1493]/60 via-transparent to-transparent" />
         
-        <div className="absolute inset-0 flex flex-col justify-end items-end p-[3vw] text-right">
+        <div className="absolute inset-0 flex flex-col justify-end items-end p-[5vw] text-right">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            <h2 className="text-[4vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA GIRL</h2>
-            <p className="text-[1vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">GLOW AND BEYOND</p>
+            <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA GIRL</h2>
+            <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">GLOW AND BEYOND</p>
           </motion.div>
         </div>
       </motion.div>
@@ -69,14 +69,14 @@ export const SplitScene = () => {
       {/* Persistent Logos floating in corners */}
       <motion.img 
         src={menLogo} 
-        className="absolute top-[2vw] left-[2vw] w-[6vw] h-[6vw] rounded-full border-[0.2vw] border-[#ff4500] z-20 shadow-xl"
+        className="absolute top-[3vw] left-[3vw] w-[8vw] h-[8vw] rounded-full border-[0.2vw] border-[#ff4500] z-20 shadow-xl"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.5 }}
       />
       <motion.img 
         src={womenLogo} 
-        className="absolute top-[2vw] right-[2vw] w-[6vw] h-[6vw] rounded-full border-[0.2vw] border-[#ff1493] z-20 shadow-xl"
+        className="absolute top-[3vw] right-[3vw] w-[8vw] h-[8vw] rounded-full border-[0.2vw] border-[#ff1493] z-20 shadow-xl"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.7 }}
