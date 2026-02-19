@@ -48,8 +48,39 @@ export const FinalScene = () => {
       </motion.div>
 
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none select-none">
-        <h2 className="text-[30vw] font-bold text-white whitespace-nowrap">SQUAD</h2>
+        <motion.h2 
+          className="text-[30vw] font-bold text-white whitespace-nowrap"
+          animate={{ opacity: [0.05, 0.08, 0.05] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+          SQUAD
+        </motion.h2>
       </div>
+
+      {/* Floating Particles */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-white/30 blur-[1px]"
+          style={{
+            width: Math.random() * 0.5 + 0.2 + 'vw',
+            height: Math.random() * 0.5 + 0.2 + 'vw',
+            left: Math.random() * 100 + '%',
+            top: Math.random() * 100 + '%',
+          }}
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0, 0.5, 0],
+            scale: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
     </motion.div>
   );
 };

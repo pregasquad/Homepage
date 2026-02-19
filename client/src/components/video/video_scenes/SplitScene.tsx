@@ -19,10 +19,13 @@ export const SplitScene = () => {
         animate={{ x: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img 
+        <motion.img 
           src={menBg} 
-          className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-700"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
           alt="Men's Salon"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.1 }}
+          transition={{ duration: 6, ease: "linear" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/60 via-transparent to-transparent" />
         
@@ -47,10 +50,13 @@ export const SplitScene = () => {
         onClick={() => window.open('https://pregasquad.koyeb.app/booking', '_blank')}
         whileHover={{ scale: 1.02 }}
       >
-        <img 
+        <motion.img 
           src={womenBg} 
-          className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-700"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
           alt="Women's Salon"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.1 }}
+          transition={{ duration: 6, ease: "linear" }}
         />
         <div className="absolute inset-0 bg-gradient-to-l from-[#ff1493]/60 via-transparent to-transparent" />
         

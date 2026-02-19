@@ -12,8 +12,16 @@ export const LogoScene = () => {
       transition={{ duration: 1 }}
     >
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ff4500,transparent_70%)] opacity-30" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,#ff1493,transparent_60%)] opacity-20" />
+        <motion.div 
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ff4500,transparent_70%)] opacity-30"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.4, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,#ff1493,transparent_60%)] opacity-20"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
       </div>
       
       <div className="flex gap-[3vw] mb-[4vw]">
@@ -37,9 +45,11 @@ export const LogoScene = () => {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        className="text-[12vw] font-bold tracking-tighter text-white font-display text-center leading-none"
+        className="text-[12vw] font-bold tracking-tighter text-white font-display text-center leading-none relative z-10"
       >
-        PREGA<br />SQUAD
+        <span className="inline-block bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-transparent drop-shadow-2xl">PREGA</span>
+        <br />
+        <span className="inline-block bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-transparent drop-shadow-2xl">SQUAD</span>
       </motion.h1>
 
       <motion.div
