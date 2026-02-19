@@ -14,12 +14,10 @@ export const SplitScene = () => {
     >
       {/* Left Side - Men (Orange) */}
       <motion.div 
-        className="relative w-1/2 h-full overflow-hidden border-r border-white/10 cursor-pointer"
+        className="relative w-1/2 h-full overflow-hidden border-r border-white/10"
         initial={{ x: '-100%' }}
         animate={{ x: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        onClick={() => window.open('https://pregasquad.koyeb.app/booking', '_blank')}
-        whileHover={{ scale: 1.02 }}
       >
         <motion.img 
           src={menBg} 
@@ -31,7 +29,7 @@ export const SplitScene = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/60 via-transparent to-transparent" />
         
-        <div className="absolute inset-0 flex flex-col justify-end p-[5vw]">
+        <div className="absolute inset-0 flex flex-col justify-end p-[5vw] z-10">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -39,6 +37,7 @@ export const SplitScene = () => {
           >
             <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA MEN</h2>
             <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">BE HUMBLE • ELITE CUTS</p>
+            <p className="text-[1vw] text-white/60 font-body mt-[1vw] uppercase tracking-widest">(Booking Coming Soon)</p>
           </motion.div>
         </div>
       </motion.div>
@@ -62,7 +61,7 @@ export const SplitScene = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-l from-[#ff1493]/60 via-transparent to-transparent" />
         
-        <div className="absolute inset-0 flex flex-col justify-end items-end p-[5vw] text-right">
+        <div className="absolute inset-0 flex flex-col justify-end items-end p-[5vw] text-right z-10">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -70,6 +69,9 @@ export const SplitScene = () => {
           >
             <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA GIRL</h2>
             <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">GLOW AND BEYOND</p>
+            <div className="mt-[2vw] px-[2vw] py-[1vw] bg-white text-black font-bold uppercase tracking-widest text-[1.2vw] inline-block rounded-full">
+              Book Now
+            </div>
           </motion.div>
         </div>
       </motion.div>
