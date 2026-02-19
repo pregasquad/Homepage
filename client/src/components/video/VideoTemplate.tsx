@@ -17,7 +17,7 @@ export default function VideoTemplate() {
 
   return (
     <div
-      className="w-full h-screen overflow-hidden relative"
+      className="fixed inset-0 w-full h-full overflow-hidden"
       style={{ backgroundColor: 'black' }}
     >
       <AnimatePresence mode="wait">
