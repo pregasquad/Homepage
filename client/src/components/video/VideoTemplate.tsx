@@ -1,11 +1,13 @@
-// Video Template - Replace ReplitLoadingScene with your scenes
-
 import { AnimatePresence } from 'framer-motion';
 import { useVideoPlayer } from '@/lib/video';
-import { ReplitLoadingScene } from './ReplitLoadingScene';
+import { LogoScene } from './video_scenes/LogoScene';
+import { SplitScene } from './video_scenes/SplitScene';
+import { FinalScene } from './video_scenes/FinalScene';
 
 const SCENE_DURATIONS = {
-  loading: 99999999,
+  intro: 3500,
+  split: 5000,
+  final: 4000,
 };
 
 export default function VideoTemplate() {
@@ -16,14 +18,12 @@ export default function VideoTemplate() {
   return (
     <div
       className="w-full h-screen overflow-hidden relative"
-      style={{ backgroundColor: 'var(--color-bg-light)' }}
+      style={{ backgroundColor: 'black' }}
     >
-      {/* mode="wait" = sequential, "sync" = simultaneous, "popLayout" = new snaps in while old animates out */}
-      <AnimatePresence>
-        {/* Replace this with your scenes */}
-        {currentScene === 0 && (
-          <ReplitLoadingScene key="loading" />
-        )}
+      <AnimatePresence mode="wait">
+        {currentScene === 0 && <LogoScene key="intro" />}
+        {currentScene === 1 && <SplitScene key="split" />}
+        {currentScene === 2 && <FinalScene key="final" />}
       </AnimatePresence>
     </div>
   );
