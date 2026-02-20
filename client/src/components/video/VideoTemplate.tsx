@@ -78,13 +78,9 @@ export default function VideoTemplate() {
       <VideoContent />
 
       {/* Subtle audio control button */}
-      <motion.button
-        className="absolute bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-black/40 transition-colors"
+      <button
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-black/40 transition-colors cursor-pointer"
         onClick={toggleMute}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
       >
         {isMuted ? (
           <>
@@ -94,7 +90,7 @@ export default function VideoTemplate() {
         ) : (
           <Volume2 className="w-5 h-5" />
         )}
-      </motion.button>
+      </button>
     </div>
   );
 }
