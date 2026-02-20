@@ -7,7 +7,7 @@ type AudioContextType = {
   currentTrack: string;
 };
 
-const defaultTrack = "https://archive.org/download/SpaMusicRelaxationMusicForStressReliefMusicForSpaRelaxingMusicSpaMusic3280C/1%20Hour%20of%20Japanese%20Spa%20Music%20%20Zen%20Music.ogg";
+const defaultTrack = "";
 
 const AudioContext = createContext<AudioContextType | null>(null);
 
@@ -18,20 +18,25 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Create audio element
-    const audio = new Audio(currentTrack);
+    const audio = new Audio();
+    if (currentTrack) {
+        audio.src = currentTrack;
+    }
     audio.loop = true;
     audio.volume = 0.5;
     audioRef.current = audio;
 
-    // Try auto-play
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => setIsMuted(false))
-        .catch(error => {
-          console.log("Autoplay prevented:", error);
-          setIsMuted(true);
-        });
+    // Try auto-play if track exists
+    if (currentTrack) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+        playPromise
+            .then(() => setIsMuted(false))
+            .catch(error => {
+            console.log("Autoplay prevented:", error);
+            setIsMuted(true);
+            });
+        }
     }
 
     return () => {
@@ -42,25 +47,33 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
   // Effect to handle track changes
   useEffect(() => {
-    if (audioRef.current && audioRef.current.src !== currentTrack) {
-      const wasPlaying = !audioRef.current.paused;
-      audioRef.current.src = currentTrack;
-      if (wasPlaying || !isMuted) {
-        audioRef.current.play().catch(e => console.error("Play failed:", e));
-      }
+    if (audioRef.current) {
+        if (currentTrack) {
+            if (audioRef.current.src !== currentTrack) {
+                const wasPlaying = !audioRef.current.paused;
+                audioRef.current.src = currentTrack;
+                // If we have a track, we want to play it
+                // We also auto-unmute if a user explicitly selects a track (which triggers this)
+                // But we respect isMuted if it was set independently, UNLESS this is a new track selection which implies "play this"
+                audioRef.current.play().catch(e => console.error("Play failed:", e));
+            }
+        } else {
+            audioRef.current.pause();
+            audioRef.current.src = "";
+        }
     }
   }, [currentTrack]);
 
   // Effect to handle mute changes
   useEffect(() => {
-    if (audioRef.current) {
+    if (audioRef.current && currentTrack) {
       if (isMuted) {
         audioRef.current.pause();
       } else {
         audioRef.current.play().catch(e => console.error("Play failed:", e));
       }
     }
-  }, [isMuted]);
+  }, [isMuted, currentTrack]);
 
   const toggleMute = () => {
     setIsMuted(prev => !prev);
