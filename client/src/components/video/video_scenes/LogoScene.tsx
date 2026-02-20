@@ -47,9 +47,9 @@ export const LogoScene = () => {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="text-[12vw] font-bold tracking-tighter text-white font-display text-center leading-none relative z-10"
       >
-        <span className="inline-block bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-transparent drop-shadow-2xl">PREGA</span>
+        <span className="inline-block bg-gradient-to-br from-[#ff4500] via-[#ff4500] to-[#ff8c00] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,69,0,0.5)]">PREGA</span>
         <br />
-        <span className="inline-block bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-transparent drop-shadow-2xl">SQUAD</span>
+        <span className="inline-block bg-gradient-to-br from-[#ff1493] via-[#ff1493] to-[#ff69b4] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,20,147,0.5)]">SQUAD</span>
       </motion.h1>
 
       <motion.div
