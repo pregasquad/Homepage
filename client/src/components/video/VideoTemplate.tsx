@@ -3,8 +3,8 @@ import { useVideoPlayer } from '@/lib/video';
 import { LogoScene } from './video_scenes/LogoScene';
 import { SplitScene } from './video_scenes/SplitScene';
 import { FinalScene } from './video_scenes/FinalScene';
-import { useState, useRef } from 'react';
-import { Volume2 } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 const SCENE_DURATIONS = {
   intro: 3500,
@@ -27,20 +27,46 @@ function VideoContent() {
 }
 
 export default function VideoTemplate() {
-  const [started, setStarted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const handleStart = () => {
-    setStarted(true);
+  useEffect(() => {
+    // Attempt to auto-play audio on mount
     if (audioRef.current) {
-      audioRef.current.play().catch(e => console.error("Audio play failed:", e));
+      audioRef.current.volume = 0.5;
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Auto-play started successfully
+            setIsMuted(false);
+          })
+          .catch((error) => {
+            // Auto-play was prevented
+            console.log("Audio autoplay prevented:", error);
+            setIsMuted(true);
+          });
+      }
+    }
+  }, []);
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      if (isMuted) {
+        audioRef.current.play()
+          .then(() => setIsMuted(false))
+          .catch(e => console.error("Play failed:", e));
+      } else {
+        audioRef.current.pause();
+        setIsMuted(true);
+      }
     }
   };
 
   return (
     <div
-      className="fixed inset-0 w-full h-full overflow-hidden"
-      style={{ backgroundColor: 'black' }}
+      className="fixed inset-0 w-full h-full overflow-hidden bg-black"
     >
       <audio
         ref={audioRef}
@@ -49,28 +75,26 @@ export default function VideoTemplate() {
         style={{ display: 'none' }}
       />
       
-      {!started && (
-        <motion.div 
-          className="absolute inset-0 z-50 flex items-center justify-center bg-black cursor-pointer"
-          onClick={handleStart}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <motion.div
-            className="flex flex-col items-center gap-4"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-sm">
-              <Volume2 className="w-8 h-8 text-white/80" />
-            </div>
-            <p className="text-white/60 font-body tracking-[0.2em] uppercase text-sm">Tap to Enter Experience</p>
-          </motion.div>
-        </motion.div>
-      )}
+      <VideoContent />
 
-      {started && <VideoContent />}
+      {/* Subtle audio control button */}
+      <motion.button
+        className="absolute bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-black/40 transition-colors"
+        onClick={toggleMute}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {isMuted ? (
+          <>
+            <VolumeX className="w-5 h-5" />
+            <span className="text-xs font-medium tracking-wider uppercase">Unmute</span>
+          </>
+        ) : (
+          <Volume2 className="w-5 h-5" />
+        )}
+      </motion.button>
     </div>
   );
 }
