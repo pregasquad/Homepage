@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useVideoPlayer } from '@/lib/video';
 import { LogoScene } from './video_scenes/LogoScene';
 import { SplitScene } from './video_scenes/SplitScene';
 import { FinalScene } from './video_scenes/FinalScene';
-import { useState, useRef, useEffect } from 'react';
+import { AudioProvider, useAudio } from './AudioContext';
 import { Volume2, VolumeX } from 'lucide-react';
 
 const SCENE_DURATIONS = {
@@ -26,71 +26,33 @@ function VideoContent() {
   );
 }
 
-export default function VideoTemplate() {
-  const [isMuted, setIsMuted] = useState(true);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    // Attempt to auto-play audio on mount
-    if (audioRef.current) {
-      audioRef.current.volume = 0.5;
-      const playPromise = audioRef.current.play();
-      
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Auto-play started successfully
-            setIsMuted(false);
-          })
-          .catch((error) => {
-            // Auto-play was prevented
-            console.log("Audio autoplay prevented:", error);
-            setIsMuted(true);
-          });
-      }
-    }
-  }, []);
-
-  const toggleMute = () => {
-    if (audioRef.current) {
-      if (isMuted) {
-        audioRef.current.play()
-          .then(() => setIsMuted(false))
-          .catch(e => console.error("Play failed:", e));
-      } else {
-        audioRef.current.pause();
-        setIsMuted(true);
-      }
-    }
-  };
+function MuteButton() {
+  const { isMuted, toggleMute } = useAudio();
 
   return (
-    <div
-      className="fixed inset-0 w-full h-full overflow-hidden bg-black"
+    <button
+      className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/60 hover:text-white hover:bg-black/60 transition-colors cursor-pointer"
+      onClick={toggleMute}
     >
-      <audio
-        ref={audioRef}
-        loop
-        src="https://archive.org/download/SpaMusicRelaxationMusicForStressReliefMusicForSpaRelaxingMusicSpaMusic3280C/1%20Hour%20of%20Japanese%20Spa%20Music%20%20Zen%20Music.ogg"
-        style={{ display: 'none' }}
-      />
-      
-      <VideoContent />
+      {isMuted ? (
+        <>
+          <VolumeX className="w-4 h-4" />
+          <span className="text-[10px] font-medium tracking-wider uppercase">Unmute</span>
+        </>
+      ) : (
+        <Volume2 className="w-4 h-4" />
+      )}
+    </button>
+  );
+}
 
-      {/* Subtle audio control button */}
-      <button
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-black/40 transition-colors cursor-pointer"
-        onClick={toggleMute}
-      >
-        {isMuted ? (
-          <>
-            <VolumeX className="w-5 h-5" />
-            <span className="text-xs font-medium tracking-wider uppercase">Unmute</span>
-          </>
-        ) : (
-          <Volume2 className="w-5 h-5" />
-        )}
-      </button>
-    </div>
+export default function VideoTemplate() {
+  return (
+    <AudioProvider>
+      <div className="fixed inset-0 w-full h-full overflow-hidden bg-black">
+        <VideoContent />
+        <MuteButton />
+      </div>
+    </AudioProvider>
   );
 }
