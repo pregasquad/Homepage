@@ -20,6 +20,12 @@ export default function VideoTemplate() {
       className="fixed inset-0 w-full h-full overflow-hidden"
       style={{ backgroundColor: 'black' }}
     >
+      <audio
+        autoPlay
+        loop
+        src="https://archive.org/download/SpaMusicRelaxationMusicForStressReliefMusicForSpaRelaxingMusicSpaMusic3280C/1%20Hour%20of%20Japanese%20Spa%20Music%20%20Zen%20Music.ogg"
+        style={{ display: 'none' }}
+      />
       <AnimatePresence mode="wait">
         {currentScene === 0 && <LogoScene key="intro" />}
         {currentScene === 1 && <SplitScene key="split" />}
