@@ -48,10 +48,17 @@ export const SplitScene = () => {
           >
             <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA MEN</h2>
             <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">BE HUMBLE • ELITE CUTS</p>
-            <div className="flex items-center gap-2 mt-4 text-white/80">
+            <div className="flex items-center gap-2 mt-4 text-white/80 mb-8">
                <Play className={`w-4 h-4 ${isDrakePlaying ? 'fill-white' : ''}`} />
                <span className="text-xs uppercase tracking-widest">{isDrakePlaying ? 'Now Playing' : 'Play Drake - Nonstop'}</span>
             </div>
+            
+            <button 
+              className="px-[5vw] py-[1.8vw] bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold uppercase tracking-widest text-[1.8vw] rounded-full cursor-not-allowed hover:bg-white/20 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Booking Soon
+            </button>
           </motion.div>
         </div>
       </motion.div>
@@ -79,13 +86,24 @@ export const SplitScene = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
+            className="flex flex-col items-end"
           >
             <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA GIRL</h2>
             <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">GLOW AND BEYOND</p>
-            <div className="flex items-center gap-2 mt-4 text-white/80 justify-end">
+            <div className="flex items-center gap-2 mt-4 text-white/80 justify-end mb-8">
                <span className="text-xs uppercase tracking-widest">{isTylaPlaying ? 'Now Playing' : 'Play Tyla - Chanel'}</span>
                <Play className={`w-4 h-4 ${isTylaPlaying ? 'fill-white' : ''}`} />
             </div>
+
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open('https://pregasquad.koyeb.app/booking', '_blank');
+              }}
+              className="px-[5vw] py-[1.8vw] bg-white text-black font-bold uppercase tracking-widest text-[1.8vw] rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,20,147,0.4)]"
+            >
+              Book Now
+            </button>
           </motion.div>
         </div>
       </motion.div>
@@ -99,25 +117,9 @@ export const SplitScene = () => {
       >
         <div className="bg-black/40 backdrop-blur-md px-[3vw] py-[1vw] rounded-full border border-white/20 shadow-2xl">
           <h3 className="text-white text-[1.5vw] font-bold font-display tracking-widest uppercase text-center drop-shadow-lg">
-            Tap sides to change vibe
+            Tap background to change vibe
           </h3>
         </div>
-      </motion.div>
-
-      {/* Book Now Button (Bottom Center) */}
-      <motion.div
-        className="absolute bottom-[15vh] left-0 right-0 flex justify-center z-40 pointer-events-auto"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.5, duration: 0.8 }}
-      >
-        <button 
-          onClick={() => window.open('https://pregasquad.koyeb.app/booking', '_blank')}
-          className="group relative px-[4vw] py-[1.2vw] bg-white text-black font-bold uppercase tracking-widest text-[1.5vw] rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-        >
-          <span className="relative z-10 group-hover:text-white transition-colors duration-300">Book Appointment</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500] to-[#ff1493] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </button>
       </motion.div>
 
       {/* Persistent Logos floating in corners */}
