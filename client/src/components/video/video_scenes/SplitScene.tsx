@@ -54,10 +54,13 @@ export const SplitScene = () => {
             </div>
             
             <button 
-              className="px-[5vw] py-[1.8vw] bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold uppercase tracking-widest text-[1.8vw] rounded-full cursor-not-allowed hover:bg-white/20 transition-colors"
-              onClick={(e) => e.stopPropagation()}
+              className="px-[5vw] py-[1.8vw] bg-white text-black font-bold uppercase tracking-widest text-[1.8vw] rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,69,0,0.4)]"
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open('https://barberprega.koyeb.app/', '_blank');
+              }}
             >
-              Booking Soon
+              Book Now
             </button>
           </motion.div>
         </div>
