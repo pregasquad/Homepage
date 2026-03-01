@@ -57,7 +57,7 @@ export const SplitScene = () => {
               className="px-[5vw] py-[1.8vw] bg-white text-black font-bold uppercase tracking-widest text-[1.8vw] rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,69,0,0.4)]"
               onClick={(e) => {
                 e.stopPropagation();
-                window.open('https://barberprega.koyeb.app/', '_blank');
+                window.open('https://barberprega.koyeb.app/booking', '_blank');
               }}
             >
               Book Now
