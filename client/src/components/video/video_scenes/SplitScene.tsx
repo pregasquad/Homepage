@@ -91,7 +91,7 @@ export const SplitScene = () => {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="flex flex-col items-end"
           >
-            <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA GIRL</h2>
+            <h2 className="text-[6vw] font-bold text-white mb-[0.5vw] font-display drop-shadow-lg">PREGA WOMEN</h2>
             <p className="text-[1.5vw] text-white/90 font-body tracking-[0.2em] uppercase drop-shadow-md">GLOW AND BEYOND</p>
             <div className="flex items-center gap-2 mt-4 text-white/80 justify-end mb-8">
                <span className="text-xs uppercase tracking-widest">{isTylaPlaying ? 'Now Playing' : 'Play Tyla - Chanel'}</span>
@@ -101,7 +101,7 @@ export const SplitScene = () => {
             <button 
               onClick={(e) => {
                 e.stopPropagation();
-                window.open('https://pregasquad.koyeb.app/booking', '_blank');
+                window.open('https://manager.pregasquad.com/booking', '_blank');
               }}
               className="px-[5vw] py-[1.8vw] bg-white text-black font-bold uppercase tracking-widest text-[1.8vw] rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,20,147,0.4)]"
             >
