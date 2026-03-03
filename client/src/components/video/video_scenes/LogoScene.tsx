@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import menLogo from '@/assets/IMG_4358_1771538435296.jpeg';
-import womenLogo from '@/assets/IMG_4806_1771538435296.jpeg';
+import { Scissors, Paintbrush } from 'lucide-react';
 
 export const LogoScene = () => {
   return (
@@ -24,40 +23,54 @@ export const LogoScene = () => {
         />
       </div>
       
-      <div className="flex gap-[3vw] mb-[4vw]">
-        <motion.img
-          src={menLogo}
-          initial={{ x: '-5vw', opacity: 0, rotate: -10 }}
-          animate={{ x: 0, opacity: 1, rotate: 0 }}
-          transition={{ delay: 0.2, duration: 0.8, type: 'spring' }}
-          className="w-[12vw] h-[12vw] rounded-full border-[0.4vw] border-[#ff4500] shadow-[0_0_30px_rgba(255,69,0,0.3)]"
-        />
-        <motion.img
-          src={womenLogo}
-          initial={{ x: '5vw', opacity: 0, rotate: 10 }}
-          animate={{ x: 0, opacity: 1, rotate: 0 }}
-          transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
-          className="w-[12vw] h-[12vw] rounded-full border-[0.4vw] border-[#ff1493] shadow-[0_0_30px_rgba(255,20,147,0.3)]"
+      <div className="relative z-10 flex flex-col items-center justify-center">
+        <div className="flex gap-[6vw] items-end justify-center mb-[4vw]">
+          {/* Scissors & PREGA */}
+          <motion.div className="flex flex-col items-center gap-[2vw]">
+            <motion.div
+              initial={{ scale: 30, opacity: 0, x: '-50vw', y: '-50vh' }}
+              animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Scissors className="w-[15vw] h-[15vw] text-[#ff4500] drop-shadow-[0_0_30px_rgba(255,69,0,0.6)]" strokeWidth={1.5} />
+            </motion.div>
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+              className="text-[8vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ff4500] via-[#ff4500] to-[#ff8c00] font-display text-center leading-none drop-shadow-[0_0_30px_rgba(255,69,0,0.5)]"
+            >
+              PREGA
+            </motion.h1>
+          </motion.div>
+
+          {/* Brush & SQUAD */}
+          <motion.div className="flex flex-col items-center gap-[2vw]">
+            <motion.div
+              initial={{ scale: 30, opacity: 0, x: '50vw', y: '50vh' }}
+              animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            >
+              <Paintbrush className="w-[15vw] h-[15vw] text-[#ff1493] drop-shadow-[0_0_30px_rgba(255,20,147,0.6)]" strokeWidth={1.5} />
+            </motion.div>
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
+              className="text-[8vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ff1493] via-[#ff1493] to-[#ff69b4] font-display text-center leading-none drop-shadow-[0_0_30px_rgba(255,20,147,0.5)]"
+            >
+              SQUAD
+            </motion.h1>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="w-[40vw] h-[0.4vw] bg-gradient-to-r from-[#ff4500] to-[#ff1493] origin-center rounded-full"
         />
       </div>
-
-      <motion.h1
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="text-[12vw] font-bold tracking-tighter text-white font-display text-center leading-none relative z-10"
-      >
-        <span className="inline-block bg-gradient-to-br from-[#ff4500] via-[#ff4500] to-[#ff8c00] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,69,0,0.5)]">PREGA</span>
-        <br />
-        <span className="inline-block bg-gradient-to-br from-[#ff1493] via-[#ff1493] to-[#ff69b4] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,20,147,0.5)]">SQUAD</span>
-      </motion.h1>
-
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="w-[20vw] h-[0.3vw] bg-gradient-to-r from-[#ff4500] to-[#ff1493] mt-[3vw] origin-center"
-      />
     </motion.div>
   );
 };
