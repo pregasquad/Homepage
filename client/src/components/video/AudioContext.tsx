@@ -7,7 +7,7 @@ type AudioContextType = {
   currentTrack: string;
 };
 
-const defaultTrack = "";
+const defaultTrack = "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b0/97/03/b0970351-ac8c-2f17-b24d-ad89d140a084/mzaf_17846596306163950808.plus.aac.p.m4a";
 
 const AudioContext = createContext<AudioContextType | null>(null);
 
