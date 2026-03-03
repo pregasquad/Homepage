@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Scissors, Paintbrush } from 'lucide-react';
+import { Scissors, Brush } from 'lucide-react';
 
 export const LogoScene = () => {
   return (
@@ -51,7 +51,7 @@ export const LogoScene = () => {
               animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
-              <Paintbrush className="w-[15vw] h-[15vw] text-[#ff1493] drop-shadow-[0_0_30px_rgba(255,20,147,0.6)]" strokeWidth={1.5} />
+              <Brush className="w-[15vw] h-[15vw] text-[#ff1493] drop-shadow-[0_0_30px_rgba(255,20,147,0.6)]" strokeWidth={1.5} />
             </motion.div>
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
