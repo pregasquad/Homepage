@@ -31,19 +31,19 @@ export const LogoScene = () => {
             <motion.div
               initial={{ scale: 30, opacity: 0, x: '-50vw', y: '-50vh' }}
               animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <img 
                 src={menLogo} 
-                className="w-[15vw] h-[15vw] rounded-full border-[0.4vw] border-[#ff4500] shadow-[0_0_30px_rgba(255,69,0,0.6)] object-cover" 
+                className="w-[20vw] h-[20vw] rounded-full border-[0.4vw] border-[#ff4500] shadow-[0_0_30px_rgba(255,69,0,0.6)] object-cover" 
                 alt="Men Logo"
               />
             </motion.div>
             <motion.h1
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-[8vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ff4500] via-[#ff4500] to-[#ff8c00] font-display text-center leading-none drop-shadow-[0_0_30px_rgba(255,69,0,0.5)]"
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="text-[9vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ff4500] via-[#ff4500] to-[#ff8c00] font-display text-center leading-none drop-shadow-[0_0_30px_rgba(255,69,0,0.5)] mt-[-1vw]"
             >
               PREGA
             </motion.h1>
@@ -54,19 +54,19 @@ export const LogoScene = () => {
             <motion.div
               initial={{ scale: 30, opacity: 0, x: '50vw', y: '50vh' }}
               animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
               <img 
                 src={womenLogo} 
-                className="w-[15vw] h-[15vw] rounded-full border-[0.4vw] border-[#ff1493] shadow-[0_0_30px_rgba(255,20,147,0.6)] object-cover" 
+                className="w-[20vw] h-[20vw] rounded-full border-[0.4vw] border-[#ff1493] shadow-[0_0_30px_rgba(255,20,147,0.6)] object-cover" 
                 alt="Women Logo"
               />
             </motion.div>
             <motion.h1
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.5, duration: 0.8 }}
-              className="text-[8vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ff1493] via-[#ff1493] to-[#ff69b4] font-display text-center leading-none drop-shadow-[0_0_30px_rgba(255,20,147,0.5)]"
+              transition={{ delay: 1.0, duration: 0.8 }}
+              className="text-[9vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#ff1493] via-[#ff1493] to-[#ff69b4] font-display text-center leading-none drop-shadow-[0_0_30px_rgba(255,20,147,0.5)] mt-[-1vw]"
             >
               SQUAD
             </motion.h1>
