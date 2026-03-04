@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Scissors, Brush } from 'lucide-react';
+import menLogo from '@/assets/IMG_4358_1771538435296.jpeg';
+import womenLogo from '@/assets/IMG_4806_1771538435296.jpeg';
 
 export const LogoScene = () => {
   return (
@@ -25,14 +26,18 @@ export const LogoScene = () => {
       
       <div className="relative z-10 flex flex-col items-center justify-center">
         <div className="flex gap-[6vw] items-end justify-center mb-[4vw]">
-          {/* Scissors & PREGA */}
+          {/* Men's Logo & PREGA */}
           <motion.div className="flex flex-col items-center gap-[2vw]">
             <motion.div
               initial={{ scale: 30, opacity: 0, x: '-50vw', y: '-50vh' }}
               animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Scissors className="w-[15vw] h-[15vw] text-[#ff4500] drop-shadow-[0_0_30px_rgba(255,69,0,0.6)]" strokeWidth={1.5} />
+              <img 
+                src={menLogo} 
+                className="w-[15vw] h-[15vw] rounded-full border-[0.4vw] border-[#ff4500] shadow-[0_0_30px_rgba(255,69,0,0.6)] object-cover" 
+                alt="Men Logo"
+              />
             </motion.div>
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
@@ -44,14 +49,18 @@ export const LogoScene = () => {
             </motion.h1>
           </motion.div>
 
-          {/* Brush & SQUAD */}
+          {/* Women's Logo & SQUAD */}
           <motion.div className="flex flex-col items-center gap-[2vw]">
             <motion.div
               initial={{ scale: 30, opacity: 0, x: '50vw', y: '50vh' }}
               animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
-              <Brush className="w-[15vw] h-[15vw] text-[#ff1493] drop-shadow-[0_0_30px_rgba(255,20,147,0.6)]" strokeWidth={1.5} />
+              <img 
+                src={womenLogo} 
+                className="w-[15vw] h-[15vw] rounded-full border-[0.4vw] border-[#ff1493] shadow-[0_0_30px_rgba(255,20,147,0.6)] object-cover" 
+                alt="Women Logo"
+              />
             </motion.div>
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
